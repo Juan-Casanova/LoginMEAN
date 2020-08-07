@@ -30,4 +30,26 @@ router.post('/signin', async (req, res) => {
 
 });
 
+router.get('/home', verifyToken,(req,res) => {
+    res.send("SI ENTRAMOS");
+})
+
 module.exports = router; 
+
+function verifyToken(req, res, next)
+{
+    if(!req.headers.authorization)
+    {
+        return res.status(401).send('no esta autorizado');
+    }
+
+    const token = req.headers.authorization.split(' ')[1]
+
+    if(token == 'null'){
+        return res.status(401).send('no esta autorizado');
+    }
+
+    const payload = jwt.verify(token, 'secretkey')
+    req.userId=payload._id;
+    next();
+}
