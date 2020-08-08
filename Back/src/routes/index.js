@@ -27,11 +27,10 @@ router.post('/signin', async (req, res) => {
 
     const token = jwt.sign({_id: user._id}, 'secretkey');
     return res.status(200).json({token});
-
 });
 
 router.get('/home', verifyToken,(req,res) => {
-    res.send("SI ENTRAMOS");
+    res.send(req._id);
 })
 
 module.exports = router; 
@@ -51,5 +50,6 @@ function verifyToken(req, res, next)
 
     const payload = jwt.verify(token, 'secretkey')
     req.userId=payload._id;
+    
     next();
 }

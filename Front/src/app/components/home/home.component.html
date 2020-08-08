@@ -1,1 +1,13 @@
-<p>home works!</p>
+
+<div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Ingresa los caracteres aqui</span>
+    </div>
+  <input type="text" class="form-control" placeholder="Texto" (blur)="hayono($event.target.value)">
+  <div>
+    <p id="textocambio"> Resultado</p>
+  </div>
+    <!--<div>
+      <button type="submit" class="btn btn-primary btn-block" (click)="hayono()">¿Hay palindomos?</button>
+    </div>-->
+</div>
