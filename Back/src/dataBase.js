@@ -2,7 +2,7 @@ const { Mongoose } = require("mongoose")
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://<juan casanova>:<juan_casanova9052>@ds135421.mlab.com:35421/juan-casanova',{
+mongoose.connect('mongodb://juancasanova:juan_casanova9052@ds063449.mlab.com:63449/prueba',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
